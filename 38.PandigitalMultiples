@@ -1,1 +1,23 @@
+var panDigitals = [];
 
+outerloop:
+for(var number = 9999; number > 0; number--){
+    var numString = '' + number;
+    var multiplier = 1;
+    while(numString.lenght < 9){
+        multiplier++;
+        numString += (number * multiplier);
+    }
+
+    if(numString.length == 9){
+        for(var digit = 1; digit < 10; digit++){
+            if(numString.indexOf('' + digit) == -1){
+             continue outerloop;
+           }
+        }
+        panDigitals.push(numString);
+     }  
+}
+panDigitals.sort();
+console.log(panDigitals);
+console.log(panDigitals[panDigitals.length-1]);
